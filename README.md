@@ -1,56 +1,58 @@
-# Azure AI service - AI-Powered Document Processing System
+# Azure AI Service - AI-Powered Document Processing System: Architecture & Capability Showcase
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Latest-green.svg)](https://fastapi.tiangolo.com/)
-[![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 
-This is an AI-based intelligent document processing system designed for enterprise-level applications. It integrates multiple Azure AI services to provide document parsing, content extraction, intelligent summarization, translation, and Q&A functionalities.
+This document serves as an **Architecture Design and Technical Capability Summary** for an Enterprise-Level AI Intelligent Document Processing System. The core objective of this project is to demonstrate the implementation of **Clean Architecture** principles, integrating multiple **Azure AI Services** (including Azure OpenAI and Azure AI Search) to build a **highly scalable, maintainable, and performant** backend system.
 
-## 🌟 Key Features
+This system provides an all-in-one document solution covering parsing, content extraction, intelligent summarization, multi-language translation, and content Q&A functionalities. **To protect intellectual property, this document focuses solely on the system design and technical implementation details, and does not include proprietary source code.**
 
-- **🤖 AI-Driven Document Processing**: Intelligent document analysis based on Azure OpenAI GPT-4o model
-- **📄 Multi-Format Support**: Supports PDF, DOCX, DOC and other document formats
-- **🔍 Intelligent Search**: Integrates Azure AI Search for semantic search functionality
-- **🌐 Multi-Language Support**: Supports Chinese, English, and Japanese summarization and translation
-- **💬 Real-Time Chat**: Intelligent Q&A system based on document content
-- **🏗️ Clean Architecture**: Adopts clean architecture design, modular and easy to maintain
-- **⚡ High-Performance Processing**: Asynchronous processing architecture based on FastAPI
+## 🌟 Key Features (Architectural Highlights)
 
-## 🚀 Core Functions
+The system design emphasizes the architecture and efficiency required for enterprise-level applications:
+
+-   **🏗️ Clean Architecture Implementation**: Strict separation of business logic (Use Cases), data access (Repositories), and external interfaces (Controllers) ensures modularity, testability, and long-term maintainability.
+-   **🤖 AI-Driven Data Processing**: Leverages **Azure OpenAI GPT-5** for advanced intelligent analysis, including complex document summarization and multi-language Q&A generation.
+-   **⚡ High-Performance Asynchronous Architecture**: Built on **FastAPI** to achieve fully asynchronous processing, optimizing the speed and concurrency of I/O-intensive tasks like file uploads and AI service calls.
+-   **🔍 Intelligent Search Integration**: Deep integration with **Azure AI Search** enables semantic search of document content and efficient RAG (Retrieval-Augmented Generation) workflows.
+-   **🌐 Multi-Language/Multi-Format Support**: Natively supports various document formats including PDF, DOCX, and DOC, offering summarization and translation in multiple languages (Chinese, English, Japanese, etc.).
+
+## 🚀 Core Functions (Functional Modules)
+
+The system organizes functionalities into distinct service or module boundaries:
 
 ### 1. AI Document Service (`/ai_service`)
-- Automatic document parsing and content extraction
-- Intelligent summary generation
-- Multi-language Q&A generation
-- Azure AI Search index creation
+-   Asynchronous document parsing and structured content extraction.
+-   Generation of document-level intelligent summaries and multi-language Q&A data preparation.
+-   Automated creation of Azure AI Search indexes from document content.
 
-### 2. Contract Search (`/contract_search`)
-- Semantic search of contract documents
-- Similarity matching
-- Configurable search thresholds
+### 2. Contract Search Service (`/contract_search`)
+-   Semantic search against specific document sets (e.g., contracts).
+-   Similarity matching and configurable search thresholds.
 
 ### 3. Real-Time AI Service (`/real_time_ai_service`)
-- Instant document summarization
-- Multi-language translation
-- Document-based chat conversations
-- Conversation history management
+-   Supports instant summarization and translation of document content.
+-   Document-based interactive chat conversations (RAG Chat).
+-   Built-in conversation history management.
 
-### 4. Document Management
-- CRUD operations for document records
-- AI Search index synchronization
-- Document lifecycle management
+### 4. Document Lifecycle Management
+-   CRUD (Create, Read, Update, Delete) operations for document records.
+-   Synchronization with the AI Search index to ensure data consistency.
 
-## 🛠️ Technical Architecture
+## 🛠️ Technical Architecture (In-Depth Technical Stack)
 
 ### Core Technology Stack
-- **Web Framework**: FastAPI
-- **AI Services**: Azure OpenAI (GPT-4o), Azure Document Intelligence
-- **Search Engine**: Azure AI Search
-- **Database**: SQLite/SQL Server (configurable)
-- **File Processing**: PyMuPDF, python-docx, mammoth
-- **Asynchronous Processing**: AsyncIO, APScheduler
+-   **Web Framework**: FastAPI (for high-performance asynchronous APIs)
+-   **AI Services**: Azure OpenAI (GPT-5), Azure Document Intelligence
+-   **Search Engine**: Azure AI Search (for semantic search)
+-   **Database**: SQLite/SQL Server (Designed for a configurable data access layer)
+-   **File Processing**: PyMuPDF, python-docx (underlying document parsing libraries)
+-   **Asynchronous Processing**: AsyncIO, APScheduler
 
-### System Architecture
+### System Architecture (Clean Architecture Layering)
+
+This diagram clearly illustrates the layering of the **Clean Architecture**, ensuring that core business logic remains independent of external frameworks and databases.
+
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
@@ -71,12 +73,14 @@ This is an AI-based intelligent document processing system designed for enterpri
 │                    Azure AI Services                           │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐           │
 │  │ Azure OpenAI│  │ Document    │  │ AI Search   │           │
-│  │   (GPT-4o)  │  │ Intelligence│  │             │           │
+│  │   (GPT-5)  │  │ Intelligence│  │             │           │
 │  └─────────────┘  └─────────────┘  └─────────────┘           │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-## 📦 Project Structure
+## 📦 Project Structure (Design Structure)
+
+The project structure reflects the principle of separation of concerns inherent in Clean Architecture:
 
 ```
 azure_ai_service/
@@ -102,85 +106,71 @@ azure_ai_service/
 └── pyproject.toml              # Project configuration
 ```
 
-## 🔧 Installation and Setup
+## 🔧 Installation and Setup (Configuration Demonstration)
+
+**Note: This section demonstrates the required environment and configuration structure. All values are placeholders for a proof-of-concept design.**
 
 ### System Requirements
 - Python 3.9+
 - Sufficient memory for processing large documents
 
-### Installation Steps
+### Installation Steps (Design Flow)
 
-1. **Clone the Project**
-   ```bash
-   git clone https://github.com/ShanMeister/azure_ai_service.git
-   cd azure_ai_service
-   ```
+1.  **Clone the Project (Code omitted for IP protection)**
+    ```bash
+    # The source code is omitted; this is to show the setup flow.
+    # git clone [Repository URL Omitted for IP Protection]
+    # cd azure_ai_service
+    ```
 
-2. **Install Dependencies**
-   ```bash
-   pip install -e .
-   ```
+2.  **Install Dependencies**
+    ```bash
+    pip install -e .
+    ```
 
-3. **Setup Environment Variables**
-   
-   Create a `.env` file in the `app/conf/` directory:
-   ```env
-   # Azure OpenAI Configuration
-   AOAI_API_KEY=your_azure_openai_key
-   AOAI_ENDPOINT=your_azure_openai_endpoint
-   AOAI_MODEL=gpt-4o
-   AOAI_API_VERSION=2024-05-01-preview
-   
-   # Azure Document Intelligence
-   DI_ENDPOINT=your_document_intelligence_endpoint
-   DI_API_KEY=your_document_intelligence_key
-   
-   # Azure AI Search
-   AIS_ENDPOINT=your_ai_search_endpoint
-   AIS_API_KEY=your_ai_search_key
-   AIS_INDEX_NAME=your_index_name
-   
-   # Other Configurations
-   SAVE_API_FILE_PATH=./uploaded_files
-   O200K_BASE=./tiktoken_cache
-   ```
+3.  **Setup Environment Variables (Placeholders)**
+    
+    Create a `.env` file in the `app/conf/` directory. The following are required configurations (**all values are placeholders**):
+    ```env
+    # Azure OpenAI Configuration
+    AOAI_API_KEY=your_azure_openai_key_PLACEHOLDER
+    AOAI_ENDPOINT=your_azure_openai_endpoint_PLACEHOLDER
+    AOAI_MODEL=gpt-5
+    
+    # Azure Document Intelligence
+    DI_ENDPOINT=your_document_intelligence_endpoint_PLACEHOLDER
+    DI_API_KEY=your_document_intelligence_key_PLACEHOLDER
+    
+    # Azure AI Search
+    AIS_ENDPOINT=your_ai_search_endpoint_PLACEHOLDER
+    AIS_API_KEY=your_ai_search_key_PLACEHOLDER
+    AIS_INDEX_NAME=your_index_name
+    
+    # Other Configurations
+    SAVE_API_FILE_PATH=./uploaded_files
+    ```
 
-4. **Setup Configuration File**
-   
-   Edit the `configuration/config.yml` file and fill in the corresponding configuration information.
+4.  **Initialize System**
+    ```bash
+    # Initialize directory structure and base data
+    digest-cli initialize
+    ```
 
-5. **Initialize System**
-   ```bash
-   # Initialize directory structure
-   digest-cli initialize
-   ```
+## 🚀 Usage (API and Endpoint Design)
 
-## 🚀 Usage
+### Starting the Service (Startup Demonstration)
 
-### Starting the Service
+1.  **Direct FastAPI Service Launch**
+    ```bash
+    python run.py
+    ```
 
-1. **Direct FastAPI Service Launch**
-   ```bash
-   python run.py
-   ```
+2.  **Using uvicorn (Standard Runtime)**
+    ```bash
+    uvicorn run:app --host 0.0.0.0 --port 8000 --reload
+    ```
 
-2. **Using uvicorn**
-   ```bash
-   uvicorn run:app --host 0.0.0.0 --port 8000 --reload
-   ```
-
-3. **Using Batch File (Windows)**
-   ```bash
-   start_server.bat
-   ```
-
-### API Documentation
-
-After starting the service, you can view API documentation at:
-- Swagger UI: `http://localhost:8000/docs`
-- ReDoc: `http://localhost:8000/redoc`
-
-### Main API Endpoints
+### Main API Endpoints (API Interface Design)
 
 #### 1. AI Document Processing Service
 ```http
@@ -192,9 +182,10 @@ Content-Type: multipart/form-data
   "account_id": "user123",
   "document_id": "doc456",
   "response_language": "Traditional Chinese",
-  "file": [document file]
+  "file": [document file] // Document upload
 }
 ```
+
 
 #### 2. Contract Search
 ```http
@@ -203,7 +194,7 @@ Content-Type: multipart/form-data
 
 {
   "system_name": "AIService",
-  "message_request": "Search related contracts",
+  "message_request": "Search related contracts", // Search query
   "document_count": 10
 }
 ```
@@ -222,31 +213,6 @@ Content-Type: multipart/form-data
 }
 ```
 
-### Command Line Tools
-
-The system provides rich CLI tools:
-
-```bash
-# Document scanning
-digest-cli scan-files
-
-# Document analysis
-digest-cli di-analyze
-
-# Document pagination
-digest-cli split-pages
-
-# Image description generation
-digest-cli fig-gen-desc
-
-# Content integration
-digest-cli bundle
-
-# Database operations
-sqldb-cli file list
-sqldb-cli chunk change-status --file-id 1 --status "processing"
-```
-
 ## 🔍 Processing Flow
 
 ### Document Processing Pipeline
@@ -263,7 +229,7 @@ sqldb-cli chunk change-status --file-id 1 --status "processing"
 
 3. **Content Processing and Integration**
    - Markdown format conversion
-   - Image description generation (GPT-4o)
+   - Image description generation (GPT-5)
    - Table content organization
 
 4. **AI Service Processing**
